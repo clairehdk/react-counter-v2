@@ -4,7 +4,7 @@ import Counter from "./components/Counter";
 import { useState } from "react";
 
 function App() {
-  const [tabCounters, setCounters] = useState([]);
+  const [counters, setCounters] = useState([0]);
   return (
     <div>
       <header>
@@ -14,16 +14,19 @@ function App() {
       <div className="line"></div>
       <button
         onClick={() => {
-          const newTab = [...tabCounters];
-          // Modifie la copie
-          newTab.push(<Counter />);
-          setCounters(newTab);
+          const newTab = [...counters];
+          if (newTab <= 3) {
+            newTab.push(0);
+            setCounters(newTab);
+          }
         }}
       >
         Add counter
       </button>
       <div className="container">
-        <Counter />
+        {counters.map((counter, index) => {
+          return <Counter key={index} />;
+        })}
       </div>
     </div>
   );
