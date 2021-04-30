@@ -28,6 +28,12 @@ function App() {
           return <Counter key={index} />;
         })}
       </div>
+      <footer>
+        <p>
+          Made with <span>React</span> at <span>Le Réacteur </span>by{" "}
+          <span>Claire Hart de Keating</span>
+        </p>
+      </footer>
     </div>
   );
 }
